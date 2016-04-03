@@ -41,7 +41,7 @@ public class JaCoCoToGoBatchMojo extends AbstractMojo {
      * a {@link java.util.List} of {@link org.helmetsrequired.jacocotogo.Source}
      * from which JaCoCo execution data should be fetched.
      */
-    @Parameter(required = true)
+    @Parameter
     private List<Source> sources;
     
     /**
@@ -115,5 +115,21 @@ public class JaCoCoToGoBatchMojo extends AbstractMojo {
         } else {
             getLog().warn("Error while running plugin.  Reason: '" + ex.getMessage() + "'");
         }
+    }
+
+    public List<Source> getSources() {
+        return sources;
+    }
+
+    public void setSources(List<Source> sources) {
+        this.sources = sources;
+    }
+
+    public File getMergeFile() {
+        return mergeFile;
+    }
+
+    public void setMergeFile(File mergeFile) {
+        this.mergeFile = mergeFile;
     }
 }
